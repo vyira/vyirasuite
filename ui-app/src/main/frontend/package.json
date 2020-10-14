@@ -2,6 +2,7 @@
   "name": "frontend",
   "version": "0.1.0",
   "private": true,
+  "homepage": "/",
   "dependencies": {
     "@fluentui/react": "^7.146.0",
     "@testing-library/jest-dom": "^4.2.4",
@@ -20,7 +21,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "clean": "rimraf ./build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -42,6 +43,7 @@
     "@types/react-redux": "^7.1.9",
     "node-sass": "^4.14.1",
     "react-redux": "^7.2.1",
-    "uuid": "^8.3.1"
+    "uuid": "^8.3.1",
+    "rimraf": "^3.0.2"
   }
 }

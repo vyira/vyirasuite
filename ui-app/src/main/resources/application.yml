@@ -1,1 +1,10 @@
-
+spring:
+  data:
+    mongodb:
+      database: vyiradb
+      port: 27017
+      host: localhost
+  application:
+    name: ui-app
+server:
+  port: 80
