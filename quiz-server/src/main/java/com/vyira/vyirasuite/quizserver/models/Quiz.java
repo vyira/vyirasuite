@@ -16,11 +16,12 @@ public class Quiz {
     @Id
     public String id;
     public String quizName;
-    public String[] questionIds;
     public String description;
+    public String[] questionIds;
     public Date startTime;
     public long duration;
     public String createdBy;
     public Date createdAt;
     public Date lastModified;
+    public boolean active;
 }
