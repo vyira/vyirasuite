@@ -1,0 +1,10 @@
+spring:
+  data:
+    mongodb:
+      database: vyiradb
+      port: 27017
+      host: localhost
+  application:
+    name: recruits
+server:
+  port: 80
