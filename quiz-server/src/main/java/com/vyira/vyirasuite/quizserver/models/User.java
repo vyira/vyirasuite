@@ -7,13 +7,16 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.io.Serializable;
 import java.util.Date;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 @Document
-public class User {
+public class User implements Serializable {
+    private final long serialUID = 1L;
+
     @Id
     String id;
     String name;
@@ -24,5 +27,4 @@ public class User {
     String email;
     String phone;
     boolean consoleAccess;
-
 }

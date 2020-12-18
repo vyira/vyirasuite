@@ -11,10 +11,11 @@ public class GenericController {
 
     /**
      * Generic API to talk with UI-component
+     *
      * @return String
      */
     @GetMapping("/polling/")
-    public String polling(){
+    public String polling() {
         return "Success";
     }
 
