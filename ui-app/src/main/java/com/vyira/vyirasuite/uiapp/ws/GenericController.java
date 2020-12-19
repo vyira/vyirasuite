@@ -1,4 +1,4 @@
-package com.vyira.vyirasuite.uiapp.controller;
+package com.vyira.vyirasuite.uiapp.ws;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class DefaultController {
-    private final Logger Log = LoggerFactory.getLogger(DefaultController.class);
+public class GenericController {
+    private final Logger Log = LoggerFactory.getLogger(GenericController.class);
 
     @RequestMapping("/")
     public ModelAndView index() {

@@ -7,4 +7,4 @@ spring:
   application:
     name: ui-app
 server:
-  port: 80
+  port: 8092

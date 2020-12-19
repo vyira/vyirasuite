@@ -1,6 +1,5 @@
 FROM adoptopenjdk/openjdk11
 WORKDIR /home/vyira/
-ADD target/ui-app-0.0.1.war app.war
+ADD target/discovery-server-0.0.1.jar app.jar
 EXPOSE 8092
-EXPOSE 443
 ENTRYPOINT ["java","-jar","app.jar"]

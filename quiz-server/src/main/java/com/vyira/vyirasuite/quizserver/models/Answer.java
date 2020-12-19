@@ -11,9 +11,8 @@ import java.io.Serializable;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
+@Document(value = "answerBank")
 public class Answer implements Serializable {
-    private final long serialUID = 1L;
 
     @Id
     public String id;

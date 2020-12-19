@@ -12,9 +12,8 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
+@Document(value = "quizList")
 public class Quiz implements Serializable {
-    private final long serialUID = 1L;
 
     @Id
     public String id;

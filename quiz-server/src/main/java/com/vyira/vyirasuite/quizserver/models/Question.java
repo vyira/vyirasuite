@@ -7,18 +7,18 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
+@Document(value = "questionBank")
 public class Question implements Serializable {
-    private final long serialUID = 1L;
 
     @Id
     public String id;
     public String questionText;
-    public Answer[] answers;
+    public List<Answer> answers;
     public int score;
     public Difficulty difficulty;
 
