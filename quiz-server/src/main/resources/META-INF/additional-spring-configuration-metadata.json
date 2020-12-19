@@ -1,0 +1,8 @@
+{
+  "properties": [
+    {
+      "name": "api.version",
+      "type": "java.lang.String",
+      "description": "Present Active API Version for Application. v1, v2, v3 and so on..."
+  }
+] }

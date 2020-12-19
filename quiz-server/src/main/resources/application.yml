@@ -8,3 +8,6 @@ spring:
     name: quiz-server
 server:
   port: 80
+
+api:
+  version: v1
