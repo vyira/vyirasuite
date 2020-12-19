@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.vyira.vyirasuite</groupId>
     <artifactId>ui-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.0.1</version>
     <name>${project.artifactId}</name>
     <description>React Application</description>
 
@@ -108,7 +108,7 @@
                             <goal>install-node-and-yarn</goal>
                         </goals>
                         <configuration>
-                            <nodeVersion>v12.19.0</nodeVersion>
+                            <nodeVersion>v14.15.1</nodeVersion>
                             <yarnVersion>v1.22.5</yarnVersion>
                         </configuration>
                         <phase>initialize</phase>
