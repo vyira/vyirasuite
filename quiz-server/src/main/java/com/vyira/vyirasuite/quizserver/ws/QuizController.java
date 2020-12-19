@@ -1,12 +1,18 @@
 package com.vyira.vyirasuite.quizserver.ws;
 
+import com.vyira.vyirasuite.quizserver.models.Answer;
+import com.vyira.vyirasuite.quizserver.models.Question;
 import com.vyira.vyirasuite.quizserver.models.User;
 import com.vyira.vyirasuite.quizserver.services.QuizServerService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Slf4j
-@RestController("api/${api.version}/")
+@RestController
+@RequestMapping("api/${api.version}/")
 public class QuizController {
 
     QuizServerService service;
@@ -26,5 +32,16 @@ public class QuizController {
     @DeleteMapping(path = "/user/{id}")
     public void deleteUser(@PathVariable String id) {
         log.debug("Deleting User with user id: " + id);
+    }
+
+    @GetMapping("/question/{id}")
+    public Question getQuestion(@PathVariable String id) {
+        Question q = new Question();
+        q.setId(id);
+        Answer ans = new Answer();
+        List<Answer> answerList = new ArrayList<>();
+        answerList.add(ans);
+        q.setAnswers(answerList);
+        return q;
     }
 }
