@@ -12,9 +12,8 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
+@Document(value = "questionBank")
 public class Question implements Serializable {
-    private final long serialUID = 1L;
 
     @Id
     public String id;

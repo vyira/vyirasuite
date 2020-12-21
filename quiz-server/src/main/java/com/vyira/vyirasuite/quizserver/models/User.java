@@ -13,9 +13,8 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document
+@Document(value = "users")
 public class User implements Serializable {
-    private final long serialUID = 1L;
 
     @Id
     String id;
