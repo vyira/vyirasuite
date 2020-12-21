@@ -8,6 +8,6 @@ public class ApplicationMongoDBConfiguration extends AbstractMongoClientConfigur
 
     @Override
     protected String getDatabaseName() {
-        return "${spring.data.mongodb.database}";
+        return "vyiradb";
     }
 }
