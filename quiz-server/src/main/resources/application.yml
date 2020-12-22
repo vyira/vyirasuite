@@ -7,7 +7,7 @@ spring:
   application:
     name: quiz-server
 server:
-  port: 80
+  port: 8090
 
 api:
   version: v1
