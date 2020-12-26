@@ -1,10 +1,20 @@
 spring:
-  data:
-    mongodb:
-      database: vyiradb
-      port: 27017
-      host: localhost
-  application:
-    name: ui-app
+    data:
+        mongodb:
+            database: vyiradb
+            port: 27017
+            host: vyirasuite-mongodb
+    application:
+        name: ui-app
 server:
-  port: 8092
+    port: 80
+
+api:
+    version: v1
+
+eureka:
+    instance:
+        hostname: vyirasuite-discovery-server
+    client:
+        service-url:
+            defaultZone: http://vyirasuite-discovery-server:8761/eureka/

@@ -2,9 +2,12 @@
 #logging.level.com.netflix.discovery=OFF
 
 server:
-  port: 8761
+    port: 8761
 
 eureka:
-  client:
-    register-with-eureka: false
-    fetch-registry: false
+    client:
+        register-with-eureka: false
+        fetch-registry: false
+
+api:
+    version: v1

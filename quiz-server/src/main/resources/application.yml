@@ -1,13 +1,21 @@
 spring:
-  data:
-    mongodb:
-      database: vyiradb
-      port: 27017
-      host: localhost
-  application:
-    name: quiz-server
+    data:
+        mongodb:
+            database: vyiradb
+            port: 27017
+            host: vyirasuite-mongodb
+    application:
+        name: quiz-server
+
 server:
-  port: 8090
+    port: 8090
 
 api:
-  version: v1
+    version: v1
+
+eureka:
+    instance:
+        hostname: vyirasuite-discovery-server
+    client:
+        service-url:
+            defaultZone: http://vyirasuite-discovery-server:8761/eureka/
