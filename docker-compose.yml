@@ -1,0 +1,100 @@
+##############################################
+####  Variables are defined in .env file  ####
+##############################################
+
+
+version: '3.7'
+
+# Define Services
+services:
+
+    # Application Name: discovery-server
+    discovery-server:
+        container_name: ${VYIRASUITE_DISCOVERY_SERVER_HOST}
+        build:
+            context: discovery-server
+            dockerfile: Dockerfile
+        ports:
+            - ${VYIRASUITE_DISCOVERY_SERVER_PORT}:${VYIRASUITE_DISCOVERY_SERVER_PORT}
+        restart: ${RESTART_POLICY}
+        depends_on:
+            - mongodb
+        networks:
+            - dockerNet
+
+    # Application Name: quiz-server
+    quiz-server:
+        container_name: ${VYIRASUITE_QUIZ_SERVER_HOST}
+        build:
+            context: quiz-server
+            dockerfile: Dockerfile
+        ports:
+            - ${VYIRASUITE_QUIZ_SERVER_PORT}:${VYIRASUITE_QUIZ_SERVER_PORT}
+
+        restart: ${RESTART_POLICY}
+        depends_on:
+            - mongodb
+            - discovery-server
+
+        networks:
+            - dockerNet
+
+    # Application Name: recruits
+    recruits:
+        container_name: ${VYIRASUITE_RECRUITS_HOST}
+        build:
+            context: recruits
+            dockerfile: Dockerfile
+        restart: ${RESTART_POLICY}
+        ports:
+            - ${VYIRASUITE_RECRUITS_PORT}:${VYIRASUITE_RECRUITS_PORT}
+        depends_on:
+            - mongodb
+            - discovery-server
+        environment:
+            MONGODB_URL: mongodb://localhost:27017/
+        networks:
+            - dockerNet
+
+    # Application Name
+    ui-app:
+        container_name: ${VYIRASUITE_UI_HOST}
+        build:
+            context: ui-app
+            dockerfile: Dockerfile
+        ports:
+            - ${VYIRASUITE_UI_PORT}:${VYIRASUITE_UI_PORT}
+        restart: ${RESTART_POLICY}
+        depends_on:
+            - discovery-server
+        networks:
+            - dockerNet
+
+    # Application name: MongoDB
+    mongodb:
+        container_name: ${VYIRASUITE_MONGODB_HOST}
+        image: library/mongo:4.4.2
+        ports:
+            - ${VYIRASUITE_MONGODB_PORT}:${VYIRASUITE_MONGODB_PORT}
+        restart: ${RESTART_POLICY}
+        networks:
+            - dockerNet
+
+    # testing container service
+    mongo-express:
+        container_name: mongoexpress
+        image: mongo-express
+        ports:
+            - "8081:8081"
+        environment:
+            ME_CONFIG_MONGODB_SERVER: ${VYIRASUITE_MONGODB_HOST}
+            ME_CONFIG_MONGODB_PORT: ${VYIRASUITE_MONGODB_PORT}
+        depends_on:
+            - mongodb
+        networks:
+            - dockerNet
+        restart: ${RESTART_POLICY}
+
+# Network Name:
+networks:
+    dockerNet:
