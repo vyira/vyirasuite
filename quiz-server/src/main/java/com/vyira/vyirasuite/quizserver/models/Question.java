@@ -12,8 +12,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(value = "questionBank")
+@Document(value = "questions")
 public class Question implements Serializable {
+    private static final long serialVersionUID = 318254252753619230L;
 
     @Id
     public String id;
@@ -22,7 +23,7 @@ public class Question implements Serializable {
     public int score;
     public Difficulty difficulty;
 
-    public enum Difficulty{
+    public enum Difficulty {
         EASY,
         NORMAL,
         HARD,
