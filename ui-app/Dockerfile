@@ -1,6 +1,7 @@
 FROM adoptopenjdk/openjdk11
+ARG APP_FILE=target/ui-app*.war
 WORKDIR /home/vyira/
-ADD target/ui-app-0.0.1.war app.war
-EXPOSE 8092
+ADD ${APP_FILE} app.war
+EXPOSE 80
 EXPOSE 443
-ENTRYPOINT ["java","-jar","app.jar"]
+ENTRYPOINT ["java","-jar","app.war"]

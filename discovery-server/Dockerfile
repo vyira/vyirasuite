@@ -1,5 +1,6 @@
 FROM adoptopenjdk/openjdk11
+ARG APP_FILE=target/discovery-server*.jar
 WORKDIR /home/vyira/
-ADD target/discovery-server-0.0.1.jar app.jar
-EXPOSE 8092
+ADD ${APP_FILE} app.jar
+EXPOSE 8761
 ENTRYPOINT ["java","-jar","app.jar"]
