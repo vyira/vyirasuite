@@ -1,4 +1,4 @@
-package com.vyira.vyirasuite.uiapp.configuration;
+package com.vyira.vyirasuite.uiapp.config;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -9,7 +9,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 
 @Configuration
 @EnableWebSecurity
-public class Config extends WebSecurityConfigurerAdapter {
+public class ApplicationWebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(final HttpSecurity httpSecurity) throws Exception {
