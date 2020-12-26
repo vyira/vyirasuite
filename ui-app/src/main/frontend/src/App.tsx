@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.scss';
+import WelcomePage from "./pages/WelcomePage";
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to UI Application</h1>
+      <WelcomePage/>
     </div>
   );
 }
