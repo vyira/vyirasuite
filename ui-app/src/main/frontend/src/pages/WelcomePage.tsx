@@ -1,13 +1,16 @@
 import React, {useState} from 'react'
-import axios from "axios";
 import {Spinner} from '@fluentui/react'
 
 const WelcomePage: React.FC = () => {
-    const [pageDetails, setPageDetails] = useState({pageTitle: "", pageDescription: "", loaded:false})
+    const [pageDetails, setPageDetails] = useState({pageTitle: "", pageDescription: "", loaded: false})
     if (!pageDetails.loaded) {
         fetch(`/api/v1/pageDetails?pageTitle=true&pageDescription=true`)
             .then(response => response.json())
-            .then(data => setPageDetails({pageTitle: data.pageTitle, pageDescription: data.pageDescription, loaded:true}))
+            .then(data => setPageDetails({
+                pageTitle: data.pageTitle,
+                pageDescription: data.pageDescription,
+                loaded: true
+            }))
     }
     console.log(pageDetails)
     return pageDetails ? (
