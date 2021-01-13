@@ -13,9 +13,13 @@ server:
 api:
     version: v1
 
+# Comment out below values to run in local
+########## Start Comment
 eureka:
     instance:
         hostname: vyirasuite-discovery-server
     client:
         service-url:
             defaultZone: http://vyirasuite-discovery-server:8761/eureka/
+
+######### End Comment
