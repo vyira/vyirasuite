@@ -1,13 +1,14 @@
 package com.vyira.vyirasuite.quizserver.services;
 
+import com.vyira.vyirasuite.quizserver.exceptions.NotFoundException;
 import com.vyira.vyirasuite.quizserver.impl.QuizServerImpl;
 import com.vyira.vyirasuite.quizserver.models.Question;
 import com.vyira.vyirasuite.quizserver.models.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Slf4j
 @Service
@@ -30,8 +31,12 @@ public class QuizServerService {
         return quizServer.getQuestion(id);
     }
 
-    public List<Question> getQuestions(String quizId) {
+    public Object getQuestions(String quizId) {
         log.debug(String.format("getQuestions(%s)", quizId));
-        return quizServer.getQuestions(quizId);
+        try {
+            return quizServer.getQuestions(quizId);
+        } catch (NotFoundException e) {
+            return new ResponseEntity<Object>("Error is Processing request", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 }

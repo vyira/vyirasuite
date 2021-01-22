@@ -43,8 +43,7 @@ public class QuizServerImpl {
             questionIdList = quiz.getQuestionIds();
             Query questionQuery = new Query(Criteria.where("_is").all(questionIdList));
             return mongoOperations.find(questionQuery, Question.class);
-        }
-        {
+        } else {
             throw new NotFoundException(String.format("Error in Finding Questions for quizId = %s", quizId));
         }
     }
