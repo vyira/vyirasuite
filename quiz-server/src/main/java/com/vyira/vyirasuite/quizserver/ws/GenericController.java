@@ -1,7 +1,5 @@
 package com.vyira.vyirasuite.quizserver.ws;
 
-import com.google.common.collect.ArrayListMultimap;
-import com.google.common.collect.Multimap;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.RandomStringUtils;
@@ -17,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
-import java.util.Arrays;
+import java.util.*;
 
 @Slf4j
 @Controller
@@ -33,12 +31,16 @@ public class GenericController {
     }
 
     @GetMapping("/test")
-    public ResponseEntity<Object> request(){
+    public ResponseEntity<Object> request() {
         MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-        map.put("content-type", Arrays.asList(MediaType.APPLICATION_JSON_VALUE));
-        map.put("X-Correlation", Arrays.asList(RandomStringUtils.randomAlphabetic(32)));
+        map.put("content-type", Collections.singletonList(MediaType.APPLICATION_JSON_VALUE));
+        map.put("X-Correlation", Collections.singletonList(RandomStringUtils.randomAlphabetic(32)));
         HttpHeaders header = new HttpHeaders();
         header.addAll(map);
-        return new ResponseEntity<Object>(map,HttpStatus.ACCEPTED);
+        Map<String, Object> bodyMap = new HashMap<>();
+        bodyMap.put("name", "Awatansa");
+        bodyMap.put("dob", new Date());
+        bodyMap.put("location", new String[]{"Longitude", "Latitude"});
+        return ResponseEntity.ok().headers(header).body(bodyMap);
     }
 }
