@@ -1,0 +1,9 @@
+{
+  "version": 1.0,
+  "pages": {
+    "welcomePage": {
+      "pageTitle": "Welcome to Vyira",
+      "pageDescription": "Single page to do all of your stuff. lets not waste our time"
+    }
+  }
+}
