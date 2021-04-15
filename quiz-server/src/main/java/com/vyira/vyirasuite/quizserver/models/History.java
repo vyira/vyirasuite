@@ -9,7 +9,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 @AllArgsConstructor
@@ -17,6 +17,7 @@ import java.util.Date;
 @Document(value = "historyEvents")
 public class History implements Serializable {
 
+    private static final long serialVersionUID = 456306624001166709L;
     @Id
     String id;
     String eventType;
@@ -24,7 +25,7 @@ public class History implements Serializable {
     String description;
 
     @CreatedDate
-    Date createDate;
+    LocalDateTime createDate;
     @CreatedBy
     String createdBy;
 }
