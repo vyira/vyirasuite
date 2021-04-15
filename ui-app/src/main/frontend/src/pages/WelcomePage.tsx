@@ -1,6 +1,5 @@
 import React, {useState} from 'react'
-import {IImageProps, Image, Spinner, SpinnerSize} from '@fluentui/react'
-import Logo from './../assets/ms-logo.png'
+import {Spinner, SpinnerSize} from '@fluentui/react'
 import {createUseStyles} from "react-jss";
 
 const useStyle = createUseStyles({
@@ -29,11 +28,6 @@ socket.addEventListener('closed', () => {
 const WelcomePage: React.FC = () => {
     const classes = useStyle()
 
-
-    const imageProps: IImageProps = {
-        src: Logo,
-        className: classes.image
-    }
     const [pageDetails, setPageDetails] = useState({pageTitle: "", pageDescription: "", loaded: false})
     if (!pageDetails.loaded) {
         if (process.env.NODE_ENV === "development") {
@@ -69,7 +63,6 @@ const WelcomePage: React.FC = () => {
         <div className={classes.root}>
             <Spinner label="Seriously, still loading... 😀" ariaLive="assertive" labelPosition="top"
                      size={SpinnerSize.large}/>
-            <Image {...imageProps}/>
         </div>
     )
 }
