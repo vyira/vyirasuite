@@ -1,6 +1,6 @@
 #logging.level.com.netflix.eureka=OFF
 #logging.level.com.netflix.discovery=OFF
-
+## Spring Properties
 server:
     port: 8761
 
@@ -9,5 +9,16 @@ eureka:
         register-with-eureka: false
         fetch-registry: false
 
+logging:
+    level:
+        root: INFO
+    file:
+        name: logs/${spring.application.name}-log.log
+
+
+## Application properties
 api:
     version: v1
+spring:
+    application:
+        name: discovery-server
