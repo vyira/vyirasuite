@@ -2,18 +2,21 @@ import React from "react";
 import {createUseStyles} from "react-jss";
 
 const Ball: React.FC<{ index: number }> = ({index}) => {
-    const size = Math.round(Math.abs(Math.random() * 100))
+    const temp_size = Math.round(Math.abs(Math.random() * 100))
+    const size = temp_size < 10 ? temp_size + 20 : temp_size
     const blur = size * 30 / 100
     const duration = size / 2
     const delay = 0
-    const left = size * Math.random() * 10
+    // TODO: calculate screen width when screen size changes
+    const screenWidth = window.screen.width
+    const left = Math.random() < 0.5 ? Math.random() * screenWidth : Math.random() * screenWidth * -1
     const top = size * -1 * Math.random() * 10
 
     const useStyle = createUseStyles({
         ball: {
             position: "absolute",
             display: "block",
-            background: process.env.NODE_ENV === "development" ? "linear-gradient(to left, #357fd3, #8d2cb9)" : "black",
+            background: "linear-gradient(to left, #357fd3, #8d2cb9)",
             width: size,
             height: size,
             left: left,
@@ -24,7 +27,8 @@ const Ball: React.FC<{ index: number }> = ({index}) => {
             borderRadius: 50,
             boxShadow: "inset 0 0 0 200px #00ff5515",
             filter: `blur(${blur}px)`,
-            overflow: "hidden"
+            overflow: "hidden",
+            zIndex: -10000,
         },
         '@keyframes animate': {
             from: {
@@ -37,9 +41,13 @@ const Ball: React.FC<{ index: number }> = ({index}) => {
             }
         }
     })
-    const css = useStyle()
 
-    return <span key={index} className={css.ball}/>
+    const css = useStyle()
+    return (
+        <>
+            <span key={index} className={css.ball}/>
+        </>
+    )
 }
 
 export {Ball}

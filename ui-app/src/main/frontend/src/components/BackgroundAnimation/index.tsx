@@ -4,7 +4,6 @@ import {Ball} from "./Ball";
 
 const useStyle = createUseStyles({
     animationWrapper: {
-        // background: `green`,
         background: `rbg(${240}, ${240}, ${240})`,
         width: "100%",
         height: `100vh`,
@@ -27,8 +26,7 @@ const useStyle = createUseStyles({
 
 export const BackgroundAnimation: React.FC<{}> = ({children}) => {
     const classes = useStyle();
-    const count = Math.round(Math.random() * 20 + 5)
-    console.log(count)
+    const count = Math.round(Math.random() * 20 + 20)
     return (
         <div>
             <div className={classes.animationWrapper}>
