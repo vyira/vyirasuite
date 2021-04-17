@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.scss';
-import WelcomePage from "./pages/WelcomePage";
+import {BackgroundAnimation} from "./components/BackgroundAnimation";
+import {Ball} from "./components/BackgroundAnimation/Ball";
+
 
 function App() {
-  return (
-    <div className="App">
-      <WelcomePage/>
-    </div>
-  );
+    return (
+        <BackgroundAnimation>
+            <div className="App">
+                <Ball index={1}/>
+            </div>
+        </BackgroundAnimation>
+    );
 }
 
 export default App;
