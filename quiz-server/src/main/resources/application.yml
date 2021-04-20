@@ -5,12 +5,13 @@ spring:
             database: vyiradb
             port: 27017
             host: vyirasuite-mongodb
+            auto-index-creation: true
     application:
         name: quiz-server
 
 logging:
     level:
-        root: INFO
+        root: debug
     file:
         name: logs/${spring.application.name}-log.log
 
