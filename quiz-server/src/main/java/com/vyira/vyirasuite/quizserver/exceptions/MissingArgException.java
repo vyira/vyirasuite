@@ -1,6 +1,6 @@
 package com.vyira.vyirasuite.quizserver.exceptions;
 
-public class MissingArgException extends Exception{
+public class MissingArgException extends Exception {
     private static final long serialVersionUID = -7831252398104609166L;
     String errMsg;
     int errCode;
