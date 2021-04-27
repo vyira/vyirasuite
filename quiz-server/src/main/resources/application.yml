@@ -11,12 +11,13 @@ spring:
 
 logging:
     level:
-        root: debug
+        root: info
     file:
         name: logs/${spring.application.name}-log.log
 
 server:
     port: 8090
+    shutdown: graceful
 
 ## Application Properties
 api:
