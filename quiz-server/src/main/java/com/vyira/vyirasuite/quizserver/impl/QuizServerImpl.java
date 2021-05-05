@@ -85,13 +85,24 @@ public class QuizServerImpl {
     }
 
     public Question getQuestion(String id) {
-        if (Strings.isNullOrEmpty(id)) {
+        if (!Strings.isNullOrEmpty(id)) {
             Query query = new Query();
             query.addCriteria(Criteria.where("_id").is(id));
             return mongoOperations.findOne(query, Question.class);
         } else {
-            throw new IllegalArgumentException();
+            log.error(String.format("Cannot find question with id %s", id));
         }
+        return null;
+    }
+
+    public HttpStatus saveQuestion(Question question) {
+        Question temp = mongoOperations.save(question, DBCollections.QUESTIONS);
+        if (Strings.isNullOrEmpty(temp.id)) {
+            log.error("Save Failed", temp);
+        } else {
+            return HttpStatus.CREATED;
+        }
+        return HttpStatus.INTERNAL_SERVER_ERROR;
     }
 
     public List<Question> getQuestions(String quizId) throws NotFoundException {

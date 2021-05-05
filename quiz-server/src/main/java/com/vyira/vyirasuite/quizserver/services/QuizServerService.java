@@ -47,4 +47,8 @@ public class QuizServerService {
             return new ResponseEntity<Object>("Error is Processing request", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    public HttpStatus saveQuestion(Object obj) {
+        return quizServer.saveQuestion((Question) obj);
+    }
 }
