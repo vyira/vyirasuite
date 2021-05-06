@@ -38,7 +38,7 @@ public class QuizServerImpl {
         Query query = new Query(Criteria.where("_id").is(id));
         List<User> userList = mongoOperations.find(query, User.class);
         User user = userList.get(0);
-        History history = new History.HistoryBuilder()
+        History history = History.builder()
                 .setCode("1000")
                 .setEventType("FETCH_USER")
                 .setDescription(String.format("Get Request received for user id %s", id))
