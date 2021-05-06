@@ -12,6 +12,12 @@ spring:
 logging:
     level:
         root: info
+        com:
+            vyira:
+                vyirasuite:
+                    quizserver:
+                        impl:
+                            QuizServerImpl: debug
     file:
         name: logs/${spring.application.name}-log.log
 

@@ -62,4 +62,3 @@ yarn.lock
 
 # logs
 /logs
-*log.log
