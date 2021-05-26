@@ -5,7 +5,7 @@ ADD ${APP_FILE} app.jar
 EXPOSE 8090
 RUN java -Djarmode=layertools -jar app.jar extract
 
-FROM openjdk:11-jre
+FROM openjdk:11-jre-slim
 WORKDIR /home/vyira/
 COPY --from=builder source/dependencies/ ./
 COPY --from=builder source/spring-boot-loader/ ./

@@ -73,8 +73,8 @@ services:
     mongodb:
         container_name: ${VYIRASUITE_MONGODB_HOST}
         image: library/mongo:latest
-#        ports:
-#            - ${VYIRASUITE_MONGODB_PORT}:${VYIRASUITE_MONGODB_PORT}
+        ports:
+            - ${VYIRASUITE_MONGODB_PORT}:${VYIRASUITE_MONGODB_PORT}
         restart: ${RESTART_POLICY}
         networks:
             - dockerNet
