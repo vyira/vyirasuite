@@ -1,7 +1,5 @@
-const Question: React.FC<{ question: any }> = ({question}) => {
-    return <div>Question Column</div>
-}
+const Question: React.FC<{ question: any }> = ({ question }) => {
+  return <div>Question Column</div>;
+};
 
-export {
-    Question
-}
+export { Question };
