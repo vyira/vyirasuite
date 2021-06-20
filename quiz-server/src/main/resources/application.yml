@@ -1,15 +1,31 @@
+## Spring Boot properties
 spring:
     data:
         mongodb:
             database: vyiradb
             port: 27017
             host: vyirasuite-mongodb
+            auto-index-creation: true
     application:
         name: quiz-server
 
+logging:
+    level:
+        root: info
+        com:
+            vyira:
+                vyirasuite:
+                    quizserver:
+                        impl:
+                            QuizServerImpl: debug
+    file:
+        name: logs/${spring.application.name}-log.log
+
 server:
     port: 8090
+    shutdown: graceful
 
+## Application Properties
 api:
     version: v1
 

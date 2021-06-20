@@ -1,8 +1,8 @@
 package com.vyira.vyirasuite.quizserver.models;
 
-import lombok.AllArgsConstructor;
+import com.vyira.vyirasuite.quizserver.enums.DBCollections;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.Id;
@@ -12,9 +12,8 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Document(value = "historyEvents")
+@Builder(setterPrefix = "set")
+@Document(value = DBCollections.HISTORY_EVENT)
 public class History implements Serializable {
 
     private static final long serialVersionUID = 456306624001166709L;
@@ -23,6 +22,8 @@ public class History implements Serializable {
     String eventType;
     String code;
     String description;
+    String entityType;
+    String entityId;
 
     @CreatedDate
     LocalDateTime createDate;

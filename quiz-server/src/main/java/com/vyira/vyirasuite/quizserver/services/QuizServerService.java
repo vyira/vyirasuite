@@ -6,6 +6,7 @@ import com.vyira.vyirasuite.quizserver.models.Question;
 import com.vyira.vyirasuite.quizserver.models.User;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -16,14 +17,21 @@ import org.springframework.stereotype.Service;
 public class QuizServerService {
     QuizServerImpl quizServer;
 
-    public User getUser(String id) {
-        log.debug(String.format("getUser(%s)", id));
-        return quizServer.getUser();
+    @Autowired
+    public QuizServerService(QuizServerImpl quizServer) {
+        this.quizServer = quizServer;
     }
 
-    public void addUser(User user) {
+    public User getUser(String id) {
+        log.debug(String.format("getUser(%s)", id));
+        return quizServer.getUser(id);
+    }
+
+    public HttpStatus addUser(User user) {
         log.debug(String.format("addUser: %s", user.toString()));
-        quizServer.addUser(user);
+        HttpStatus status = quizServer.addUser(user);
+        log.info("Add User: " + status);
+        return status;
     }
 
     public Question getQuestion(String id) {
@@ -38,5 +46,9 @@ public class QuizServerService {
         } catch (NotFoundException e) {
             return new ResponseEntity<Object>("Error is Processing request", HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    public HttpStatus saveQuestion(Object obj) {
+        return quizServer.saveQuestion((Question) obj);
     }
 }

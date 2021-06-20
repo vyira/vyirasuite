@@ -17,7 +17,7 @@ public class QuestionDto implements Serializable {
     private List<Answer> answers;
     private int score;
 
-    private QuestionDto convertToDto(Question question){
+    private QuestionDto convertToDto(Question question) {
         QuestionDto questionDto = new QuestionDto();
         BeanUtils.copyProperties(question, questionDto);
         return questionDto;

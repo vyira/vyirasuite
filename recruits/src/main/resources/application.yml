@@ -1,3 +1,4 @@
+## Spring boot properties
 spring:
     data:
         mongodb:
@@ -9,10 +10,18 @@ spring:
 server:
     port: 8091
 
+logging:
+    level:
+        root: INFO
+    file:
+        name: logs/${spring.application.name}-log.log
+
+## Application specific properties
 api:
     version: v1
 
-# Comment out below values to run in local
+## Discovery Server Properties
+## Comment out below values to run in local
 ########## Start Comment
 eureka:
     instance:

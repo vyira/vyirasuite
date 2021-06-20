@@ -72,14 +72,14 @@ services:
     # Application name: MongoDB
     mongodb:
         container_name: ${VYIRASUITE_MONGODB_HOST}
-        image: library/mongo:4.4.2
+        image: library/mongo:latest
         ports:
             - ${VYIRASUITE_MONGODB_PORT}:${VYIRASUITE_MONGODB_PORT}
         restart: ${RESTART_POLICY}
         networks:
             - dockerNet
         volumes:
-            -   backend:/data/db
+            - backend:/data/db
 
     # testing container service
     mongo-express:

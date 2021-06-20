@@ -1,6 +1,6 @@
 package com.vyira.vyirasuite.quizserver.exceptions;
 
-public class QuestionException extends Exception{
+public class QuestionException extends Exception {
     private static final long serialVersionUID = -7898238106758069548L;
     String errMsg;
     int errCode;

@@ -1,7 +1,11 @@
-import Admin from "./Admin";
+import Admin from "pages/Admin";
 
 function ControlPanel() {
-    return <div><Admin/></div>
+  return (
+    <div>
+      <Admin />
+    </div>
+  );
 }
 
-export default ControlPanel
+export default ControlPanel;

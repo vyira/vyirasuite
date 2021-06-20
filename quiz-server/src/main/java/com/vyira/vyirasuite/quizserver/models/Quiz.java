@@ -1,5 +1,6 @@
 package com.vyira.vyirasuite.quizserver.models;
 
+import com.vyira.vyirasuite.quizserver.enums.DBCollections;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,7 +14,7 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(value = "quizList")
+@Document(value = DBCollections.QUIZ_LIST)
 public class Quiz implements Serializable {
     private static final long serialVersionUID = -3394779289727820256L;
 
